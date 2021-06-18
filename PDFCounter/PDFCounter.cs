@@ -95,6 +95,16 @@ namespace PDFCounter
             lblIndicator.Text = "Process Completed";
             btnStart.Enabled = true;
             btnBrowse.Enabled = true;
+
+            if (storeInFile.Checked)
+            {
+                StringBuilder results = new StringBuilder();
+                results.AppendLine($"Files Count= {lblResultFiles.Text}");
+                results.AppendLine($"Page Count= {lblResultPages.Text}");
+                results.AppendLine($"Errors Count= {lblErrors.Text}");
+                var destFile = Path.Combine(SelectedPath, "results.txt");
+                File.WriteAllText(destFile, results.ToString(),Encoding.UTF8);
+            }
         }
         void ShowMsgError(string message)
         {

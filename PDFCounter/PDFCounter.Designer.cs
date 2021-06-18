@@ -35,6 +35,7 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblErrors = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblResultPages = new System.Windows.Forms.Label();
             this.lblResultFiles = new System.Windows.Forms.Label();
@@ -43,9 +44,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
             this.pdfFolderdialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.lblErrors = new System.Windows.Forms.Label();
             this.GesFilesFromSystem = new System.ComponentModel.BackgroundWorker();
             this.CountPDFPages = new System.ComponentModel.BackgroundWorker();
+            this.storeInFile = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.storeInFile);
             this.panel1.Controls.Add(this.lblIndicator);
             this.panel1.Controls.Add(this.txtPDFFolder);
             this.panel1.Controls.Add(this.btnBrowse);
@@ -135,6 +137,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(970, 201);
             this.panel2.TabIndex = 1;
+            // 
+            // lblErrors
+            // 
+            this.lblErrors.AutoSize = true;
+            this.lblErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrors.Location = new System.Drawing.Point(407, 108);
+            this.lblErrors.Name = "lblErrors";
+            this.lblErrors.Size = new System.Drawing.Size(23, 25);
+            this.lblErrors.TabIndex = 5;
+            this.lblErrors.Text = "0";
             // 
             // label4
             // 
@@ -207,16 +219,6 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // lblErrors
-            // 
-            this.lblErrors.AutoSize = true;
-            this.lblErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrors.Location = new System.Drawing.Point(407, 108);
-            this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(23, 25);
-            this.lblErrors.TabIndex = 5;
-            this.lblErrors.Text = "0";
-            // 
             // GesFilesFromSystem
             // 
             this.GesFilesFromSystem.DoWork += new System.ComponentModel.DoWorkEventHandler(this.GesFilesFromSystem_DoWork);
@@ -227,13 +229,23 @@
             this.CountPDFPages.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CountPDFPages_DoWork);
             this.CountPDFPages.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.CountPDFPages_RunWorkerCompleted);
             // 
-            // Form1
+            // storeInFile
+            // 
+            this.storeInFile.AutoSize = true;
+            this.storeInFile.Location = new System.Drawing.Point(262, 22);
+            this.storeInFile.Name = "storeInFile";
+            this.storeInFile.Size = new System.Drawing.Size(333, 21);
+            this.storeInFile.TabIndex = 4;
+            this.storeInFile.Text = "Store Results [it will be stored at selected folder]";
+            this.storeInFile.UseVisualStyleBackColor = true;
+            // 
+            // PDFCounter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "PDFCounter";
             this.Text = "PDF Counter";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -265,6 +277,7 @@
         private System.Windows.Forms.Label lblErrors;
         private System.ComponentModel.BackgroundWorker GesFilesFromSystem;
         private System.ComponentModel.BackgroundWorker CountPDFPages;
+        private System.Windows.Forms.CheckBox storeInFile;
     }
 }
 
